@@ -10,8 +10,7 @@ public class BankQuotingEngine {
     private static final int LOAN_LENGTH_IN_YEARS = 3;
 
     public static BankResponse getQuote(List<Lender> lenders, int requestedAmount) {
-        double fundsAvailable = getFunds(lenders);
-        if (Double.compare(fundsAvailable, requestedAmount) <= 0) {
+        if (!areFundsAavailable(lenders, requestedAmount)) {
             return new ErrorResponse("It is not possible to provide a quote to satisfy the requested amount %d",
                     requestedAmount);
         }
@@ -60,6 +59,11 @@ public class BankQuotingEngine {
         } else {
             return creditor.getFunds();
         }
+    }
+
+    private static boolean areFundsAavailable(List<Lender> lenders, int requestedAmount) {
+        double fundsAvailable = getFunds(lenders);
+        return Double.compare(fundsAvailable, requestedAmount) >= 0;
     }
 
     private static double getFunds(List<Lender> lenders) {
