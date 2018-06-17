@@ -14,10 +14,6 @@
         </encoder>
     </appender>
 
-    <root level="info">
-        <appender-ref ref="FILE" />
-    </root>
-
     <logger name="consoleLogger" level="info">
         <appender-ref ref="STDOUT" />
     </logger>

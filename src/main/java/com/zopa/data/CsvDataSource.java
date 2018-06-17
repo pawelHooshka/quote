@@ -16,7 +16,7 @@ import java.util.List;
 
 public class CsvDataSource {
 
-    private final static Logger logger = LoggerFactory.getLogger(CsvDataSource.class);
+    private final static Logger logger = LoggerFactory.getLogger("fileLogger");
     private String filePath;
 
     public CsvDataSource(String filePath) {
