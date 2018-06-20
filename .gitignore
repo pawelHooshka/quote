@@ -3,3 +3,5 @@ target/
 /.idea/
 **/.log
 **/.iml
+**/*.iml
+**/*.log
